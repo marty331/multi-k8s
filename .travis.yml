@@ -1,0 +1,17 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t marty331moz/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run marty331moz/react-test npm test -- --coverage
+
+after_success:
+  - docker build -t marty331moz/multi-client ./client
+  - docker build -t marty331moz/multi-nginx ./nginx
+  - docker build -t marty331moz/multi-server ./server
+  - docker build -t marty331moz/multi-worker ./worker
+  # Log in to the docker CLI
+  
