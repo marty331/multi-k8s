@@ -14,4 +14,9 @@ after_success:
   - docker build -t marty331moz/multi-server ./server
   - docker build -t marty331moz/multi-worker ./worker
   # Log in to the docker CLI
-  
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take those images and push them to docker hub
+  - docker push marty331moz/multi-client
+  - docker push marty331moz/multi-nginx
+  - docker push marty331moz/multi-server
+  - docker push marty331moz/multi-worker
