@@ -9,7 +9,11 @@ export const Fib = () => {
     const fetchValues = async () => {
         const values = await axios.get('/api/values/current')
         console.log("values ", values.data)
-        setValues(values.data)
+        let foundValue = values.data
+        if (typeof(foundValue) !== Number)){
+            foundValue = 0
+        }
+        setValues(foundValue)
     }
 
     const handleSubmit = async (event) => {
