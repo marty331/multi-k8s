@@ -10,8 +10,8 @@ export const Fib = () => {
         const values = await axios.get('/api/values/current')
         console.log("values ", values.data)
         let foundValue = values.data
-        if (typeof(foundValue) !== Number){
-            foundValue = 0
+        if (typeof(foundValue) !== "object"){
+            foundValue = [{"number": 0}]
         }
         setValues(foundValue)
     }
