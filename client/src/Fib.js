@@ -8,7 +8,7 @@ export const Fib = () => {
 
     const fetchValues = async () => {
         const values = await axios.get('/api/values/current')
-        console.log("values ", values.data)
+        console.log("values ", values)
         let foundValue = values.data
         if (foundValue.length === undefined){
             foundValue = [{"number": 0}]
