@@ -4,7 +4,7 @@ import axios from 'axios'
 export const Fib = () => {
     const [values, setValues] = useState(null)
     const [seenIndexes, setSeenIndexes] = useState([])
-    const [index, setIndex] = useState('')
+    const [index, setIndex] = useState(null)
 
     const fetchValues = async () => {
         const values = await axios.get('/api/values/current')
@@ -16,7 +16,7 @@ export const Fib = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-        await axios.post('/api/values', {
+        await axios.post('/api/values/send', {
             index: index
         })
         setIndex({index: ''})
