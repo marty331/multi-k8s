@@ -43,7 +43,7 @@ export const Fib = () => {
         return entries
     }
     useEffect(() => {
-        fetchValues()
+        // fetchValues()
         fetchIndexes()
     }, [index])
 
