@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 export const Fib = () => {
-    const [values, setValues] = useState({})
+    const [values, setValues] = useState(null)
     const [seenIndexes, setSeenIndexes] = useState([])
     const [index, setIndex] = useState('')
 
@@ -10,9 +10,7 @@ export const Fib = () => {
         const values = await axios.get('/api/values/current')
         console.log("values ", values)
         let foundValue = values.data
-        if (foundValue.length === undefined){
-            foundValue = [{"number": 0}]
-        }
+        
         setValues(foundValue)
     }
 
@@ -50,17 +48,24 @@ export const Fib = () => {
     }, [index])
 
     return (
+       
         <>
         <form onSubmit={handleSubmit}> 
             <label>Enter your index:</label>
             <input value={index} onChange={event => setIndex(event.target.value)}/>
             <button>Submit</button>
         </form>
-        <h3>Indexes I have seen:</h3>
-        {renderSeenIndexes()}
+        {values && 
+        <div>
+            <h3>Indexes I have seen:</h3>
+            {renderSeenIndexes()}
 
-        <h3>Calculated values:</h3>
-        {renderValues()}
+            <h3>Calculated values:</h3>
+            {renderValues()}
+        </div>
+        
+        }
+        
         </>
     )
 }
