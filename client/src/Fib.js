@@ -16,7 +16,7 @@ export const Fib = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-        await axios.post('/api/values/send', {
+        await axios.post('/api/values', {
             index: index
         })
         setIndex({index: ''})
