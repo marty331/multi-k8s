@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: rollingdogs.app
+spec:
+  secretName: rollingdogs.app
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: rollingdogs.app
+  dnsNames:
+    - rollingdogs.app
+    - www.rollingdogs.app
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - rollingdogs.app
+          - www.rollingdogs.app
