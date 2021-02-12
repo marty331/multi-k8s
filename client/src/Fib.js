@@ -8,8 +8,8 @@ export const Fib = () => {
 
     const fetchValues = async () => {
         const fectedValues = await axios.get('/api/values/current')
-        console.log("fectedValues ", fectedValues)        
-        setValues(fectedValues)
+        console.log("fectedValues ", fectedValues.data)        
+        setValues(fectedValues.data)
     }
 
     const handleSubmit = async (event) => {
@@ -57,7 +57,7 @@ export const Fib = () => {
             <h3>Indexes I have seen:</h3>
             
             <h3>Calculated values:</h3>
-            {renderValues()}
+            {renderValues}
         </div>
         
         }
