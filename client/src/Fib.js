@@ -7,11 +7,9 @@ export const Fib = () => {
     const [index, setIndex] = useState(null)
 
     const fetchValues = async () => {
-        const values = await axios.get('/api/values/current')
-        console.log("values ", values)
-        let foundValue = values.data
-        
-        setValues(foundValue)
+        const fectedValues = await axios.get('/api/values/current')
+        console.log("fectedValues ", fectedValues)        
+        setValues(fectedValues)
     }
 
     const handleSubmit = async (event) => {
