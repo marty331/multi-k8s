@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export const Fib = () => {
     const [values, setValues] = useState(null)
-    const [seenIndexes, setSeenIndexes] = useState([])
+    const [seenIndexes, setSeenIndexes] = useState(null)
     const [index, setIndex] = useState(null)
 
     const fetchValues = async () => {
@@ -25,6 +25,7 @@ export const Fib = () => {
 
     const fetchIndexes = async () => {
         const seenIndexes = await axios.get('/api/values/all')
+        console.log('seenindexes ', seenIndexes)
         setSeenIndexes(seenIndexes.data)
     }
 
