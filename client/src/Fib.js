@@ -27,7 +27,7 @@ export const Fib = () => {
         setSeenIndexes(seenIndexes.data)
     }
     const renderSeenIndexes = () => {
-        console.log("seen ", seenIndexes)
+        console.log("seen ", seenIndexes.map(({ number}) => number).join(', '))
         return seenIndexes.map(({ number}) => number).join(', ')
     }
     const renderValues = () => {
@@ -43,7 +43,7 @@ export const Fib = () => {
         return entries
     }
     useEffect(() => {
-        // fetchValues()
+        fetchValues()
         fetchIndexes()
     }, [index])
 
