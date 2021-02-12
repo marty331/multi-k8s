@@ -26,10 +26,7 @@ export const Fib = () => {
         const seenIndexes = await axios.get('/api/values/all')
         setSeenIndexes(seenIndexes.data)
     }
-    const renderSeenIndexes = () => {
-        console.log("seen ", seenIndexes)
-        return seenIndexes
-    }
+
     const renderValues = () => {
         const entries = []
         console.log("render values ", values)
@@ -58,7 +55,7 @@ export const Fib = () => {
         {values && 
         <div>
             <h3>Indexes I have seen:</h3>
-            {renderSeenIndexes()}
+            {seenIndexes}
 
             <h3>Calculated values:</h3>
             {renderValues()}
