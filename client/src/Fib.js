@@ -57,10 +57,7 @@ export const Fib = () => {
         {values && 
         <div>
             <h3>Indexes I have seen:</h3>
-            {seenIndexes && 
-            <p>{seenIndexes}</p>
-            }
-
+            
             <h3>Calculated values:</h3>
             {renderValues()}
         </div>
