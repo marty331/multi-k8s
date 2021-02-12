@@ -6,13 +6,13 @@ metadata:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
     certmanager.k8s.io/cluster-issuer: 'letsencrypt-prod'
-    nginx.ingress.kubernetes.io/ssl-redirect: 'true'
+    nginx.ingress.kubernetes.io/ssl-redirect: 'false'
 spec:
   tls:
     - hosts:
         - rollingdogs.app
         - www.rollingdogs.app
-        secretName: rollingdogs.app
+      secretName: rollingdogs.app
   rules:
     - host: rollingdogs.app
       http:
