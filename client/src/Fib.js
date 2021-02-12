@@ -16,10 +16,11 @@ export const Fib = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
+
         await axios.post('/api/values', {
-            index: index
+            "index": index
         })
-        setIndex({index: ''})
+        setIndex('')
     }
 
     const fetchIndexes = async () => {
@@ -55,7 +56,9 @@ export const Fib = () => {
         {values && 
         <div>
             <h3>Indexes I have seen:</h3>
-            {seenIndexes}
+            {seenIndexes && 
+            <p>{seenIndexes}</p>
+            }
 
             <h3>Calculated values:</h3>
             {renderValues()}
