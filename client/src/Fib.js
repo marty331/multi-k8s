@@ -27,8 +27,8 @@ export const Fib = () => {
         setSeenIndexes(seenIndexes.data)
     }
     const renderSeenIndexes = () => {
-        console.log("seen ", seenIndexes.map(({ number}) => number).join(', '))
-        return seenIndexes.map(({ number}) => number).join(', ')
+        console.log("seen ", seenIndexes)
+        return seenIndexes
     }
     const renderValues = () => {
         const entries = []
